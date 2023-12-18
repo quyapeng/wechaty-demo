@@ -3,16 +3,13 @@ import CryptoJS from "crypto-js";
 // import { Base64 } from "js-base64";
 
 // 定义API Key和Access Token
-let requestObj = {
-  Uid: "工作助手",
-  sparkResult: "",
-};
+import requestObj from "./config";
 
 // 封装鉴权方法
 function authenticate() {
   return new Promise((resolve: any, reject: any) => {
-    var apiKey = "";
-    var apiSecret = "";
+    var apiKey = requestObj.APIKey;
+    var apiSecret = requestObj.APISecret;
     var url = "wss://spark-api.xf-yun.com/v1.1/chat";
     var host = "spark-api.xf-yun.com";
     var date = new Date().toUTCString();
